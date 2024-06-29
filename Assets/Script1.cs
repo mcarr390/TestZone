@@ -8,6 +8,7 @@ public class Script1 : MonoBehaviour
     void Start()
     {
         //i made this script
+        // fuck you and your script
     }
 
     // Update is called once per frame
