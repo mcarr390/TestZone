@@ -11,7 +11,7 @@ public class TankGun : MonoBehaviour
     public Transform muzzle;
     public AudioSource audioSource;
     public List<AudioClip> audioClips;
-    public int ammo = 2;
+    public int ammo = 0;
     public Text ammoText;
 
     void Start()
