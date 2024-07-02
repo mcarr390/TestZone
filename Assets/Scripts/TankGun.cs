@@ -11,25 +11,33 @@ public class TankGun : MonoBehaviour
     public Transform muzzle;
     public AudioSource audioSource;
     public List<AudioClip> audioClips;
-    public int ammo = 0;
     public Text ammoText;
-
+    public Storage storage;
     void Start()
     {
-        ammoText.text = ammo.ToString();
+        storage = GetComponent<Storage>();
+        ammoText.text = storage.ammo.ToString();
 
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
     }
 
     [ContextMenu("Fire")]
     public void Fire()
     {
-        if(ammo == 0)
+        if(storage.ammo == 0)
             return;
         
         var bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
         var randomAudioClip = audioClips[Random.Range(0, audioClips.Count - 1)];
         audioSource.PlayOneShot(randomAudioClip);
-        ammo--;
-        ammoText.text = ammo.ToString();
+        storage.ammo--;
+        ammoText.text = storage.ammo.ToString();
     }
 }
