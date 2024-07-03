@@ -5,4 +5,5 @@ using UnityEngine;
 public class Storage : MonoBehaviour
 {
     public int ammo;
+    public Intel intel;
 }

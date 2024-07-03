@@ -17,7 +17,13 @@ public class Bullet : MonoBehaviour
         if (colliderThatBulletHit.gameObject.name != "PlayerTank")
         {
             Debug.Log("Bullet hit: " + colliderThatBulletHit.gameObject.name);
+            if (colliderThatBulletHit.gameObject.name == "EnemyTank")
+            {
+                Enemy enemy = colliderThatBulletHit.gameObject.GetComponent<Enemy>();
+                enemy.enemyHealth -= 5;
+                
 
+            }
         }
     }
 }
