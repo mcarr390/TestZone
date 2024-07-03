@@ -6,4 +6,5 @@ public class Storage : MonoBehaviour
 {
     public int ammo;
     public Intel intel;
+    public int gold;
 }

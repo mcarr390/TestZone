@@ -19,8 +19,11 @@ public class Bullet : MonoBehaviour
             Debug.Log("Bullet hit: " + colliderThatBulletHit.gameObject.name);
             if (colliderThatBulletHit.gameObject.name == "EnemyTank")
             {
-                Enemy enemy = colliderThatBulletHit.gameObject.GetComponent<Enemy>();
-                enemy.enemyHealth -= 5;
+                colliderThatBulletHit.gameObject.GetComponent<TankStats>().tankHealth -=10;
+                if (colliderThatBulletHit.gameObject.GetComponent<TankStats>().tankHealth == 0)
+                {
+                   Destroy(colliderThatBulletHit.gameObject); 
+                }
                 
 
             }
