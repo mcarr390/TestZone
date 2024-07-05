@@ -6,6 +6,8 @@ public class RandomNavmeshMovement : MonoBehaviour
     public float wanderRadius = 20f; // Maximum distance to wander from the starting point
     private Vector3 startingPosition; // Starting position of the GameObject
     private NavMeshAgent agent; // Reference to the NavMeshAgent component
+    public float timeDelayBetweenMovements = 30f;
+    public float timeSinceMovementStart = 0f;
 
     void Start()
     {
@@ -19,9 +21,16 @@ public class RandomNavmeshMovement : MonoBehaviour
     void Update()
     {
         // If the agent has reached the destination or is stuck, wander again
-        if (!agent.pathPending && agent.remainingDistance < 0.1f)
+        bool finishedPath = !agent.pathPending && agent.remainingDistance < 0.1f;
+        
+        if (finishedPath && timeSinceMovementStart > timeDelayBetweenMovements)
         {
+            timeSinceMovementStart = 0f;
             Wander();
+        }
+        else
+        {
+            timeSinceMovementStart += Time.deltaTime;
         }
     }
 
