@@ -7,6 +7,14 @@ using Random = UnityEngine.Random;
 
 public class TankGun : MonoBehaviour
 {
+    public GameObject enemyTank;
+    
+    
+    
+    
+    
+    
+    
     public GameObject bulletPrefab;
     public Transform muzzle;
     public AudioSource audioSource;
@@ -16,7 +24,10 @@ public class TankGun : MonoBehaviour
     void Start()
     {
         storage = GetComponent<Storage>();
-        ammoText.text = storage.ammo.ToString();
+        if (ammoText != null)
+        {
+            ammoText.text = storage.ammo.ToString();
+        }
 
     }
 
@@ -24,7 +35,11 @@ public class TankGun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Fire();
+            if (ammoText != null)
+            {
+                Fire();
+
+            }
         }
     }
 
@@ -35,9 +50,13 @@ public class TankGun : MonoBehaviour
             return;
         
         var bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
+        bullet.GetComponent<Bullet>().attackersName = gameObject.name;
         var randomAudioClip = audioClips[Random.Range(0, audioClips.Count - 1)];
         audioSource.PlayOneShot(randomAudioClip);
         storage.ammo--;
-        ammoText.text = storage.ammo.ToString();
+        if (ammoText != null)
+        {
+            ammoText.text = storage.ammo.ToString();
+        }
     }
 }
