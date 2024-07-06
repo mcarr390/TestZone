@@ -113,7 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackersName: 
   targetName: 
-  speed: 3
+  explosion: {fileID: 8427347321381547437}
+  speed: 7
 --- !u!1001 &2428012790556890535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,5 +179,10 @@ PrefabInstance:
 --- !u!4 &8421970445744677293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6148207044085986314, guid: be01741081bb2c944aad51a527b3e120, type: 3}
+  m_PrefabInstance: {fileID: 2428012790556890535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8427347321381547437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6143467867895953418, guid: be01741081bb2c944aad51a527b3e120, type: 3}
   m_PrefabInstance: {fileID: 2428012790556890535}
   m_PrefabAsset: {fileID: 0}

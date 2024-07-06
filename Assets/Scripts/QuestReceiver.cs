@@ -6,18 +6,27 @@ public class QuestReceiver: MonoBehaviour
 {
     void OnTriggerEnter(Collider colliderThatEnteredMe)
     {
-       
-        
-        Intel intel = colliderThatEnteredMe.gameObject.GetComponent <Storage>().intel;
-        bool isIntelValid = intel == null;
+        List<Intel> intelsPlayerWasCarrying;
+        intelsPlayerWasCarrying = colliderThatEnteredMe.gameObject.GetComponent<Storage>().intels;
 
-        if (isIntelValid)
+
+        foreach (Intel intel in intelsPlayerWasCarrying)
         {
-            colliderThatEnteredMe.gameObject.GetComponent<Storage>().gold+=1000;
-            Debug.Log("Mission Complete");
+            if (intel.isSpecial)
+            {
+               Debug.Log("congratulations"); 
+            }
         }
-       
-       
+        // Intel intel = colliderThatEnteredMe.gameObject.GetComponent <Storage>().intels;
+        // bool isIntelValid = intel == null;
+        //
+        // if (isIntelValid)
+        // {
+        //     colliderThatEnteredMe.gameObject.GetComponent<Storage>().gold+=1000;
+        //     Debug.Log("Mission Complete");
+        // }
+
+
     }
     // Start is called before the first frame update
     void Start()

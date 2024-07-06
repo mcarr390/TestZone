@@ -9,7 +9,7 @@ public class QuestGiver : MonoBehaviour
         GameObject myGameObject = gameObject;
         Intel questGiversintel = gameObject.GetComponent<Intel>();
         Storage playersStorage = colliderThatEnteredMe.gameObject.GetComponent<Storage>();
-        playersStorage.intel = questGiversintel;
+        //playersStorage.intels = questGiversintel;
        
     }
     // Start is called before the first frame update

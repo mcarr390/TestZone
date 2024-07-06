@@ -6,10 +6,10 @@ using UnityEngine;
 public class Intel : MonoBehaviour
 {
     public GameObject chest;
-
+    public bool isSpecial;
     void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Storage>().intel = this;
+        other.GetComponent<Storage>().intels.Add(this);
         gameObject.SetActive(false);
     }
 

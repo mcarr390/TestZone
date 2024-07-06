@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
-    float _movementSpeed = 1;
+    float _movementSpeed = 3;
     float _rotationSpeed = 50;
     void Update()
     {
