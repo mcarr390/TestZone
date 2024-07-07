@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankStats : MonoBehaviour
+public class Shield : MonoBehaviour
 {
-    public int tankHealth = 100;
-    // Start is called before the first frame update
+    public int shieldHealth = 100;
     void OnTriggerEnter(Collider bulletsCollider)
     {
         //lets try to get the Bullet component from whatever collider hit the shield
@@ -22,12 +20,13 @@ public class TankStats : MonoBehaviour
         {
             //explode the bullet as soon as it hits the shield
             bullet.ExplodeBullet();
-            tankHealth -= 10;
-
-            if (tankHealth <= 0)
+            shieldHealth -= 5;
+            
+            if (shieldHealth <= 0)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
+            
         }
     }
 }

@@ -50,7 +50,7 @@ public class TankGun : MonoBehaviour
             return;
         
         var bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
-        bullet.GetComponent<Bullet>().attackersName = gameObject.name;
+        bullet.GetComponent<Bullet>().bulletSenderName = gameObject.name;
         var randomAudioClip = audioClips[Random.Range(0, audioClips.Count - 1)];
         audioSource.PlayOneShot(randomAudioClip);
         storage.ammo--;
