@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TankStats : MonoBehaviour
 {
+    public GameObject shield;
+    public GameObject sliderHealth;
     public int tankHealth = 100;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider bulletsCollider)
@@ -18,16 +21,20 @@ public class TankStats : MonoBehaviour
         bool isWhatHitMeABullet = bullet != null;
 
         // if a bullet DID hit me
-        if (isWhatHitMeABullet)
+        if (isWhatHitMeABullet && !shield.activeSelf)
         {
-            //explode the bullet as soon as it hits the shield
-            bullet.ExplodeBullet();
-            tankHealth -= 10;
-
-            if (tankHealth <= 0)
+            if (bullet.bulletSenderName != gameObject.name)
             {
-                Destroy(gameObject);
-            }
+                
+                bullet.ExplodeBullet();
+                tankHealth -= 10;
+                sliderHealth.GetComponent<Slider>().value = tankHealth;
+                if (tankHealth <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }            //explode the bullet as soon as it hits the shield
+            
         }
     }
 }

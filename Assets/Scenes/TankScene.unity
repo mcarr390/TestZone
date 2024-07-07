@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35752022, g: 0.69739085, b: 0.72364134, a: 1}
+  m_IndirectSpecularColor: {r: 0.35750195, g: 0.69737744, b: 0.723637, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10951,7 +10951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb66223225d2a94fb517fa142c05954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldHealth: 10
+  shieldHealth: 30
+  shield: {fileID: 1958038562}
 --- !u!1 &552476336
 GameObject:
   m_ObjectHideFlags: 0
@@ -19232,11 +19233,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 858144685921621245, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 858144685921621245, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 858144686234047108, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
       propertyPath: m_Name
       value: Slider_Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 858144686234047110, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
+      propertyPath: m_Value
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 858144686234047110, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
+      propertyPath: m_MaxValue
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 858144686735568742, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
       propertyPath: m_AnchorMax.x
@@ -33045,6 +33058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741d9ada5e9c6d64ea295d94eafee974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: {fileID: 0}
+  sliderHealth: {fileID: 0}
   tankHealth: 100
 --- !u!4 &1593152444 stripped
 Transform:
@@ -39341,6 +39356,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828534815}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1835578516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 858144685921621243, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
+  m_PrefabInstance: {fileID: 975255908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1836890521
 GameObject:
   m_ObjectHideFlags: 0
@@ -42241,6 +42261,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953321319}
   m_Mesh: {fileID: -2872353316088551050, guid: 79f50a58eccd1534588927bdf8103215, type: 3}
+--- !u!1 &1958038562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 858144686234047108, guid: 289869e27e6b1734e8af76dabac37f50, type: 3}
+  m_PrefabInstance: {fileID: 975255908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961606851
 GameObject:
   m_ObjectHideFlags: 0
@@ -44341,6 +44366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741d9ada5e9c6d64ea295d94eafee974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: {fileID: 537761230}
+  sliderHealth: {fileID: 1835578516}
   tankHealth: 100
 --- !u!65 &2072875098
 BoxCollider:
