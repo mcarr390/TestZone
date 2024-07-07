@@ -73,7 +73,11 @@ public class EnemyTankAI : MonoBehaviour
         {
             // Implement your firing mechanism here
             transform.LookAt(playerTank);
-            GetComponent<TankGun>().Fire();
+            var tankGun = GetComponent<TankGun>();
+            if (tankGun != null)
+            {
+                tankGun.Fire();
+            }
             lastFiredTime = Time.time; // Update the last fired time
         }
     }
